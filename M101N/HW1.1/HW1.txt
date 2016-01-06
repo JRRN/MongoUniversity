@@ -1,0 +1,8 @@
+cd Path to dump folder
+
+shell1 -> mongod 
+shell2 -> mogorestore dump
+shell2 -> mongo
+	  use m101
+	  show collections
+	  db.hw1.find()
