@@ -11,5 +11,11 @@
     "gulp": "3.8.11",
     "gulp-mocha": "2.0.1",
     "mocha": "2.2.4"
-  }
+  },
+  "name": "chapter1",
+  "description": "For this section's assessment, you will fill out the functions defined in `interface.js`. These functions will query a collection of movies - the data in the movies collection will look like what you see in the `movies.json` file.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "JRRN",
+  "license": "ISC"
 }
