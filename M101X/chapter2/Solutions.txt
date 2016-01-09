@@ -1,0 +1,20 @@
+HOMEWORK 2.1 
+
+Given the principle "store what you query for," which of the following would be the best choice for the _id field of the courses collection?
+
+ A MongoDB object id  
+
+ X  The course number, for instance CS-101 The course number, for instance CS-101 - correcto  
+ 
+ An automatically-incremented integer
+
+
+HOMEWORK 2.2 
+
+Students and courses have a many-to-many relationship. Given the principle of least cardinality, which of the following would be the best way to store this many-to-many relationship?
+
+ Courses should contain an array of IDs referring to the students taking the course.  
+
+ Courses should embed an array of student documents representing all students taking the course.  
+
+ X  Students should contain an array of course numbers referring to the courses a student is taking. 

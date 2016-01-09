@@ -12,6 +12,10 @@ var mongoose = require('mongoose');
  */
 var schema = new mongoose.Schema({
   // Implement schema here!
+	_id: { type: String, required: true },
+ 	title: { type: String, required: true, maxlength: 140 },
+  	description: { type: String, required: true },
+  	requirements: [{ type: String, ref: 'Course' }]
 });
 
 module.exports = schema;
