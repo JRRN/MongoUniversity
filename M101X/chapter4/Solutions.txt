@@ -1,0 +1,25 @@
+HOMEWORK 4.1
+
+Which of the following best describes AngularJS directives?
+
+ A directive is responsible for making HTTP requests to the server and displaying results  
+
+ X  A directive associates an AngularJS template with its corresponding JavaScript functionality, such as a controller 
+
+ A directive is responsible for exposing JavaScript functions that a template accesses  
+
+ A directive is the same thing as a view
+
+HOMEWORK 4.2
+
+Which of the following $http calls violates the same-origin policy for HTTP requests, assuming that your server is running on http://localhost:3000?
+
+ $http.get('/test')  
+
+ $http.get('http://localhost:3000/test')  
+
+ $http.get('//localhost:3000/test')  
+
+ X  $http.get('http://localhost:8080/test') 
+
+ $http.get('test')
