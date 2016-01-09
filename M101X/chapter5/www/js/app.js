@@ -101,6 +101,12 @@ angular.module('starter', ['templates', 'mean-retail.components',
 
   // TODO: add 'tab.search' here
   .state('tab.search', {
+    url: '/search',
+    views: {
+      'tab-category': {
+        templateUrl: 'templates/tab-search.html'
+      }
+    }
   })
 
   // if none of the above states are matched, use this as the fallback
