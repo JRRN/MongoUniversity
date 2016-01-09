@@ -1,0 +1,27 @@
+<div class="product-wrapper">
+  <div class="sort-arrow" ng-click="handlePriceClick()">
+    Sort by Price
+    <span ng-show="price === -1">
+      <i class="fa fa-arrow-up"></i>
+    </span>
+    <span ng-show="price === 1 || price === undefined">
+      <i class="fa fa-arrow-down"></i>
+    </span>
+  </div>
+  <div style="clear: both"></div>
+  <div class="product" ng-repeat="product in products">
+    <div class="product-image">
+      <img ng-src="{{product.pictures[0]}}" />
+    </div>
+    <div class="product-name">
+      <a ng-href="#/product/{{product._id}}">
+        {{product.name}}
+      </a>
+    </div>
+    <div class="product-cost">
+      {{product.displayPrice}}
+    </div>
+    <add-to-cart></add-to-cart>
+  </div>
+  <div style="clear: both"></div>
+</div>

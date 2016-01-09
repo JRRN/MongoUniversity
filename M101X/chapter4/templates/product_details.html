@@ -1,0 +1,23 @@
+<div class="product-details">
+  <div class="crumbs">
+    <div class="crumb" ng-repeat="ancestor in product.category.ancestors">
+      <a ng-href="#/category/{{ancestor}}">
+        {{ancestor}}
+      </a>
+      <div class="divider" ng-hide="$last">
+        /
+      </div>
+    </div>
+  </div>
+  <div class="product-details-content">
+    <div class="image-left">
+      <img ng-src="{{product.pictures[0]}}" />
+    </div>
+    <div class="details-right">
+      <h1>{{product.name}}</h1>
+      <div>{{product.displayPrice}}</div>
+      <add-to-cart></add-to-cart>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+</div>
