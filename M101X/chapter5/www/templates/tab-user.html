@@ -1,0 +1,11 @@
+<ion-view view-title="{{user.user.profile.username}}">
+  <ion-content>
+    <div class="fb-login" ng-if="!user.user" ng-click="facebookLogin();">
+      <i class="ion-social-facebook"></i>
+      Log In
+    </div>
+    <div class="cart" ng-show="user.user">
+      <checkout></checkout>
+    </div>
+  </ion-content>
+</ion-view>
