@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using MongoDB.Driver;
 using M101DotNet.WebApp.Models;
 using M101DotNet.WebApp.Models.Account;
+using MongoDB.Bson;
 
 namespace M101DotNet.WebApp.Controllers
 {
@@ -36,6 +37,27 @@ namespace M101DotNet.WebApp.Controllers
             var blogContext = new BlogContext();
             // XXX WORK HERE
             // fetch a user by the email in model.Email
+            var connectionString = "mongodb://localhost:27017";
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase("blog");
+
+            var col = db.GetCollection<User>("users");
+
+            var builder = Builders<User>.Filter;
+            var filter = builder.Eq("Email", model.Email);
+            var list = await col.Find(filter).ToListAsync();
+
+            var user = new User();
+
+            if (list.Any())
+            {
+                user.Name = list[0].Name;
+                user.Email = list[0].Email;
+            }
+            else
+            {
+                user = null;
+            }
 
             if (user == null)
             {
@@ -85,6 +107,18 @@ namespace M101DotNet.WebApp.Controllers
             var blogContext = new BlogContext();
             // XXX WORK HERE
             // create a new user and insert it into the database
+
+            var connectionString = "mongodb://localhost:27017";
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase("blog");
+
+            User user = new User
+            {
+                Name = model.Name,
+                Email = model.Email
+            };
+
+            var col = db.GetCollection<User>("users").InsertOneAsync(user);
 
             return RedirectToAction("Index", "Home");
         }
