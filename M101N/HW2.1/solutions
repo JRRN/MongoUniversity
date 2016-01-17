@@ -1,4 +1,4 @@
-Homework: Homework 2.1
+﻿Homework: Homework 2.1
 
 In this problem, you will be using a collection of student scores that is similar to what we used in the lessons. Please download grades.json from the Download Handout link and import it into your local mongo database as follows:
 
@@ -19,7 +19,6 @@ The answer should be student_id 164 with an average of approximately 89.3.
 Now it’s your turn to analyze the data set. Find all exam scores greater than or equal to 65, and sort those scores from lowest to highest.
 
 What is the student_id of the lowest exam score above 65?
-
 
 115
 X 22
