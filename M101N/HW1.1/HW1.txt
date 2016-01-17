@@ -1,5 +1,4 @@
 cd Path to dump folder
-
 shell1 -> mongod 
 shell2 -> mogorestore dump
 shell2 -> mongo
