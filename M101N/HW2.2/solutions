@@ -35,3 +35,15 @@ To verify that you have completed this task correctly, provide the identity of t
 
 db.grades.aggregate( { '$group' : { '_id' : '$student_id', 'average' : { $avg : '$score' } } }, { '$sort' : { 'average' : -1 } }, { '$limit' : 1 } )
 Enter the student ID below. Please enter just the number, with no spaces, commas or other characters.
+
+54
+
+var a = db.grades.distinct("student_id");
+var res =[]; 
+
+a.forEach(function(i) { 
+	var b = db.grades.find({"student_id" : i }).sort({score:1});
+	db.grades.remove(b[0]._id); 
+
+})
+
