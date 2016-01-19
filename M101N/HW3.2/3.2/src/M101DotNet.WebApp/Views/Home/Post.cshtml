@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = Model.Post.Title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>@Model.Post.Author</p>
+<p>@Model.Post.CreatedAtUtc</p>
+<p>
+    @foreach (var tag in Model.Post.Tags)
+    {
+        <a href="@Url.Action("Posts", "Home", new { tag = tag })">@tag</a>
+    }
+</p>
+<p>@Model.Post.Content</p>
+
+<h3>Comments</h3>
+@foreach (var comment in Model.Post.Comments)
+{
+    <h5>@comment.Author on @comment.CreatedAtUtc</h5>
+    <p>@comment.Content</p>
+}
+
+@if (Request.IsAuthenticated)
+{
+    <h3>Add Comment</h3>
+    using (Html.BeginForm("NewComment", "Home"))
+    {
+        <input type="hidden" name="PostId" value="@Model.Post.Id" />
+        <textarea name="Content"></textarea>
+        <p>
+            <button type="submit" class="btn btn-default">Submit &raquo;</button>
+        </p>
+    }
+}
