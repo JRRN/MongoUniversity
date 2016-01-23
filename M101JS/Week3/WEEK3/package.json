@@ -1,0 +1,11 @@
+{
+    "name": "nodejsDriverFindAndCursors",
+    "version": "0.1.0",
+    "description": "Using the MongoDB driver to read documents using find",
+    "main": "app.js",
+    "dependencies": {
+        "mongodb": "~2.1.3"
+    },
+    "author": "Shannon Bradshaw",
+    "license": "0BSD"
+}
