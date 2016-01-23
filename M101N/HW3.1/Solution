@@ -45,3 +45,51 @@ This should be the output:
 To verify that you have completed this task correctly, provide the identity (in the form of their _id) of the student with the highest average in the class with following query that uses the aggregation framework. The answer will appear in the _id field of the resulting document.
 
 db.students.aggregate( { '$unwind' : '$scores' } , { '$group' : { '_id' : '$_id' , 'average' : { $avg : '$scores.score' } } } , { '$sort' : { 'average' : -1 } } , { '$limit' : 1 } )
+
+var MongoClient                         = require('mongodb').MongoClient;
+
+MongoClient.connect('mongodb://localhost:27017/school', function (err, db) {
+    if (err) {
+        throw err;
+    }
+
+    var cursor                          =  db.collection('students').find({});
+
+    cursor.each(function (err, doc) {
+        if (err) {
+            throw err;
+        }
+        if (doc !== null) {
+            var nota                    = null;
+            var posicion                = null;
+            var deberes                 = 0;
+
+            for (var index = 0; index < doc.scores.length; ++index) {
+                if (doc.scores[index].type === 'homework') {
+                    deberes++;
+                    if (nota === null) {
+                        nota            = doc.scores[index];
+                        posicion        = index;
+                    } 
+                    else{
+                        if (doc.scores[index].score < nota.score) {
+                            nota        = doc.scores[index];
+                            posicion    = index;
+                        }
+                    }
+                }
+            }
+
+            if (deberes > 1) {
+                doc.scores.splice(posicion, 1);
+                db.collection('students').save(doc, function (err, saveResult) {
+                    if (err) {
+                        throw err;
+                    }
+                });
+            }
+        }
+    });
+});
+
+13
