@@ -5,7 +5,7 @@ When using find() in the Node.js driver, which of the following best describes w
 
 When a cursor's sort() method is called
 When a cursor's limit() method is called
-When we call a cursor method passing a callback function to process query results
+X	When we call a cursor method passing a callback function to process query results
 When find() is called
 Only when forEach is called
 When a cursor's skip() method is called
@@ -51,7 +51,7 @@ Samantha, Fay
 Katherine, Stacy
 Mary, Alice
 Sam, Tom
-Bob, Seamus
+X	Bob, Seamus
 Kim, Sacha
 Fiona, Wendy
 
