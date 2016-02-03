@@ -29,3 +29,17 @@ Just to be clear, the mongoProc feedback will refer to the web pages that invoke
 You'll want to figure out (by examining the C# code in the handout, or by any other means available to you (such as the database profiler) which queries are triggered. Once you know that, build an index to optimize it.
 
 Once you have added the indexes to make those pages fast, validate and turn in the homework using mongoProc.
+
+
+
+Answer
+
+To find the solution to this problem, the first thing you'll need to do is to create explain plans for the queries in question, then find an appropriate index for those queries.
+
+Query 1: The homepage sorts blog posts by date, with the following query: 'db.posts.find().sort({"CreatedAtUtc":-1}).limit(10)'. To explain this query with execution statistics, we can type 'db.posts.explain("executionStats").find().sort({"CreatedAtUtc":-1}).limit(10)'
+
+The problem you'll notice is the "SORT" stage, meaning MongoDB is performing an in-memory sort to satisfy this query. We want to sort based on an index. The index creation command 'db.posts.createIndex({"CreatedAtUtc":1})' will create an index that does not use an in-memory sort for our query.
+
+Query 2: Finding blog posts by tag, and sorted by date is performed with the following query: 'db.posts.find({"Tags" : "asd"}).sort({"CreatedAtUtc":-1}).limit(10)'. To explain this query with execution statistics, we can type 'db.posts.explain("executionStats").find({"Tags" : "asd"}).sort({"CreatedAtUtc":-1}).limit(10)'
+
+The index creation command 'db.posts.createIndex({"Tags" : 1, "CreatedAtUtc":1})' will create an appropriate index for our query.

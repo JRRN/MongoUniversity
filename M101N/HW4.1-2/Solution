@@ -57,8 +57,8 @@ Suppose you have a collection with the following indexes:
 Which of the following queries can utilize at least one index to find all matching documents or to sort? Check all that apply.
 
 
-db.products.find( { $and : [ { price : { $gt : 30 } },{ price : { $lt : 50 } } ] } ).sort( { brand : 1 } )
-db.products.find( { 'brand' : "GE" } ).sort( { price : 1 } )
+X   db.products.find( { $and : [ { price : { $gt : 30 } },{ price : { $lt : 50 } } ] } ).sort( { brand : 1 } )
+X   db.products.find( { 'brand' : "GE" } ).sort( { price : 1 } )
 db.products.find( { 'brand' : "GE" } )
 db.products.find( { brand : 'GE' } ).sort( { category : 1, brand : -1 } )
 
@@ -206,8 +206,8 @@ Suppose you have a collection called tweets whose documents contain information 
 
 The query returns 251120 documents.
 The query uses an index to determine which documents match.
-The query examines 251120 documents.
-The query uses an index to determine the order in which to return result documents.
+X   The query examines 251120 documents.
+X   The query uses an index to determine the order in which to return result documents.
 The query is a covered query.
 
 
