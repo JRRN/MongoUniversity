@@ -58,8 +58,8 @@ Which of the following queries can utilize at least one index to find all matchi
 
 
 db.products.find( { 'brand' : "GE" } )
-db.products.find( { 'brand' : "GE" } ).sort( { price : 1 } )
-db.products.find( { $and : [ { price : { $gt : 30 } },{ price : { $lt : 50 } } ] } ).sort( { brand : 1 } )
+X	db.products.find( { 'brand' : "GE" } ).sort( { price : 1 } )
+X	db.products.find( { $and : [ { price : { $gt : 30 } },{ price : { $lt : 50 } } ] } ).sort( { brand : 1 } )
 db.products.find( { brand : 'GE' } ).sort( { category : 1, brand : -1 } )
 
 Homework: Homework 5.2
@@ -202,10 +202,10 @@ Suppose you have a collection called tweets whose documents contain information 
     "ok" : 1
 }
 
-The query uses an index to determine the order in which to return result documents.
+X	The query uses an index to determine the order in which to return result documents.
 The query uses an index to determine which documents match.
 The query returns 251120 documents.
-The query examines 251120 documents.
+X	The query examines 251120 documents.
 The query is a covered query.
 
 Homework: Homework 5.3
@@ -216,7 +216,7 @@ mongoimport -d m101 -c profile < sysprofile.json
 Now query the profile data, looking for all queries to the students collection in the database school2, sorted in order of decreasing latency. What is the latency of the longest running operation to the collection, in milliseconds?
 
 
-15820
+X	15820
 2350
 10000000
 19776550
