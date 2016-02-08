@@ -16,10 +16,16 @@ Note: this data set is relatively large. Due to some quirks of the shell, the en
 
 Kayce Kenyon
 Devorah Smartt
-Gisela Levin
+X	Gisela Levin
 Brittny Warwick
 Tamika Schildgen
 Mariette Batdorf
+
+db.posts.aggregate([
+      {$unwind : "$comments"},
+      {$group : {"_id":"$comments.author","Count":{"$sum":1} }},
+    {$sort: {"Count":-1}},{$limit: 1}
+  ])
 
 Homework: Homework 5.2 (Hands On)
 
@@ -43,12 +49,19 @@ If you prefer, you may download the handout and perform your analysis on your ma
 
 Once you've generated your aggregation query and found your answer, select it from the choices below. 
 
-44805
+X	44805
 55921
 67935
 71819
 82426
 93777
+
+db.zips.aggregate([
+{$match: {state: {$in: ["CA", "NY"]}}},
+{$match: {pop: {$gt: 25000}}},
+{$group: {_id: {state: "$state", city: "$city"}, pop_sum: {$sum: "$pop"}}},
+{$group: {_id: "$_id.state", pop_avg: {$avg: "$pop_sum"}}}
+])
 
 Homework: Homework 5.3 (Hands On)
 
@@ -103,11 +116,25 @@ Below, choose the class_id with the highest average student average.
 
 8
 9
-1
+X	1
 5
 7
 0
 6
+
+db.grades.aggregate([
+
+{"$unwind" : "$scores"},
+
+{$match: {"scores.type": {$ne: "quiz"}}},
+
+{$group: {_id: {"student_id": "$student_id", class_id:"$class_id"}, student_avg: {$avg: "$scores.score"}}},
+
+{$group: {_id: "$_id.class_id", class_avg: {$avg: "$student_avg"}}},
+
+{$sort: {class_avg: -1}}
+
+])
 
 Homework: Homework 5.4
 
@@ -137,9 +164,16 @@ You will need to probably change your projection to send more info through than 
 Note: When you mongoimport the data, you will probably see a few duplicate key errors; this is to be expected, and will not prevent the mongoimport from working. There is also an issue with some versions of MongoDB 3.0 where it claims that 0 documents were mongoimported, when in fact there were 29,467 documents imported. You can verify this for yourself by going into the shell and counting the documents in the "test.zips" collection.
 
 
-298015
+X	298015
 345232
 245987
 312893
 158249
 543282
+
+db.zips.aggregate([
+{$project: { _id: 1, pop: 1, first_char: {$substr : ["$city",0,1]}}},
+{$match: {first_char: {$in: ["0","1","2","3","4","5","6","7","8","9"]}}},
+{$group: {_id: "$first_char", addMas: {$sum: "$pop"}}},
+{$group: {_id: null, Total: {$sum: "$addMas"}}}
+])
