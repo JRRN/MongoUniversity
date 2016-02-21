@@ -4,8 +4,8 @@ Which of the following statements are true about replication in MongoDB? Check a
 
 
 MongoDB replication is synchronous.
-The minimum sensible number of voting nodes to a replica set is three.
-The oplog utilizes a capped collection.
+X	The minimum sensible number of voting nodes to a replica set is three.
+X	The oplog utilizes a capped collection.
 By default, using the MongoClient connection class, w=1 and j=1
 
 
@@ -16,7 +16,7 @@ Let's suppose you have a five member replica set and want to assure that writes 
 
 w=1, j=3
 w=3, j=0
-w="majority", j=1
+X	w="majority", j=1
 w=1, j=1
 w=5, j=1
 
@@ -25,11 +25,11 @@ Homework: Homework 7.3
 Which of the following statements are true about choosing and using a shard key? Check all that apply.
 
 
-MongoDB cannot enforce unique indexes on a sharded collection other than the shard key itself or indexes preferred by the shard key.
+X	MongoDB cannot enforce unique indexes on a sharded collection other than the shard key itself or indexes preferred by the shard key.
 You can change the shard key on a collection if you desire.
 The shard key must be unique.
-There must be an index on the collection that starts with the shard key.
-Any update that does not contain the shard key will be sent to all shards.
+X	There must be an index on the collection that starts with the shard key.
+X	Any update that does not contain the shard key will be sent to all shards.
 
 Homework: Homework 7.4
 
@@ -80,5 +80,5 @@ Which shards would be involved in answering the query?
 
 s0, s1, and s2
 s0
-s1
+X	s1
 s2
