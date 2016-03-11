@@ -1,0 +1,52 @@
+Final: Lab 2
+
+In this lab, you will implement the methods in items.js necessary to support the route for text search or "/search". This route is implemented in mongomart.js in the function that begins with this line:
+
+router.get("/search", function(req, res) {
+The methods you will implement in items.js are: searchItems(), and getNumSearchItems(). The comments in each of these methods describe in detail what you need to do to implement each method. When you are finished, restart mongomart.js application and answer the question below.
+Which of the following are true of searches using the functionality you have just implemented?
+
+
+All products in the Apparel category match the query "sporty".
+The last product listed on the first page of results for the query "mongodb book" (do not use quotes) is "Scaling MongoDB"
+X       All products in two different categories match the query "stick"
+
+> db.item.createIndex ({ title: "text", slogan: "text", description: "text"})
+{
++
+        "createdCollectionAutomatically" : true,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+
+> db.item.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "test.item"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "_fts" : "text",
+                        "_ftsx" : 1
+                },
+                "name" : "title_text_slogan_text_description_text",
+                "ns" : "test.item",
+                "weights" : {
+                        "description" : 1,
+                        "slogan" : 1,
+                        "title" : 1
+                },
+                "default_language" : "english",
+                "language_override" : "language",
+                "textIndexVersion" : 3
+        }
+]
+
+
