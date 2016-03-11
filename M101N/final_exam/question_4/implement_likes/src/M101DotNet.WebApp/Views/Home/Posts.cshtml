@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "All Posts";
+}
+
+@foreach (var post in Model)
+{
+    <h2>@post.Title by @post.Author on @post.CreatedAtUtc</h2>
+    <p>@post.Content.Substring(0, Math.Min(post.Content.Length - 1, 200))</p>
+    <p><a class="btn btn-default btn-sm" href="@Url.Action("Post", "Home", new { id = post.Id })">View &raquo;</a></p>
+}
