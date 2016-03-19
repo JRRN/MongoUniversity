@@ -2,12 +2,19 @@ M102: MongoDB for DBAs
 
 
 Chapter 1: Introduction 	Introduction to MongoDB, key concepts and installing Mongo 
+
 Chapter 2: CRUD and Administrative Commands 	Creating, reading and updating data
+
 Chapter 3: Performance 	Indexing and monitoring 
+
 Chapter 4: Replication 	Replication, Failover, Recovery
+
 Chapter 5: Replication Part 2 	Optimizing and monitoring your Replica Sets 
+
 Chapter 6: Scalability 	Sharding setup, sharding monitoring, shard key selection, inserting large amounts of data 
+
 Chapter 7: Backup and Recovery 	Security, backups and restoring for backups 
+
 Final Exam 
 
 
@@ -33,10 +40,17 @@ System Requirements
     MongoDB: 3.0.4+
 
 Agenda
+
 Week 1: Introduction and Overview
+
 Week 2: Creating, Reading and Updating Data (CRUD)
+
 Week 3: Performance
+
 Week 4: Replication
+
 Week 5: Replication, Part 2
+
 Week 6: Scalability
+
 Week 7: Backup and Recovery
