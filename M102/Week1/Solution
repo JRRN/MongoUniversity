@@ -10,6 +10,8 @@ at the ">" prompt.
 
 What do you get as a result?
 
+16777216
+
 
 
 
@@ -25,6 +27,8 @@ When done, run this query in the mongo shell:
 
 What's the result?
 
+
+3
 
 
 
@@ -46,7 +50,12 @@ Now, what query would you run to get all the products where brand equals the str
 Homework: Homework 1.4
 
 How would you print out, in the shell, just the value in the "name" field, for all the product documents in the collection, without extraneous characters or braces, sorted alphabetically, ascending? (Check all that would apply.)
-var c = db.products.find( { }, { name : 1, _id : 0 } ).sort( { name : 1 } ); while( c.hasNext() ) { print( c.next().name); }
+
+
+X	var c = db.products.find( { }, { name : 1, _id : 0 } ).sort( { name : 1 } ); while( c.hasNext() ) { print( c.next().name); }
+
 var c = db.products.find( { } ).sort( { name : -1 } ); while( c.hasNext() ) { print( c.next().name); }
-var c = db.products.find( { } ).sort( { name : 1 } ); c.forEach( function( doc ) { print( doc.name ) } );
+
+X	var c = db.products.find( { } ).sort( { name : 1 } ); c.forEach( function( doc ) { print( doc.name ) } );
+
 db.products.find( { }, { name : 1, _id : 0 } ).sort( { name : 1 } ) 
