@@ -20,6 +20,7 @@ and enter the numeric result below (no spaces).
 Note: if you would like to try different indexes, you can use db.sensor_readings.dropIndexes() to drop your old index before creating a new one. (For this problem you will only need one index beyond the _id index which is present by default.) 
 
 
+X	6
 
 
 Homework: Homework 3.2
@@ -39,6 +40,7 @@ homework.c()
 and enter the output below. Once you have it right and are ready to move on, ctrl-c (terminate) the shell that is still running the homework.b() function.
 
 
+X	12
 
 
 Homework: Homework 3.3
@@ -66,21 +68,22 @@ After creating the index, do a find() for products that work with an "ac3" phone
 Q1: 0
 Q1: 1
 Q1: 3
-Q1 : 4
+X	Q1 : 4
 Q2 : 1
 Q2 : 4
 Q2 : 5
-Q2 : 12
+X	Q2 : 12
 Q3 : No
-Q3 : Yes 
+X	Q3 : Yes 
 
-
+db.products.explain("executionStats").find({"for" : "ac3"})
+db.products.find({"for" :"ac3"}).explain()
 
 Homework: Homework 3.4
 
 Which of the following are available in WiredTiger but not in MMAPv1? Check all that apply.
-Document level locking
+X	Document level locking
 Collection level locking
 Indexes
 Covered Queries
-Data compression 
+X	Data compression 

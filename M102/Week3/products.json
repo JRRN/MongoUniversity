@@ -1,0 +1,12 @@
+{"_id":"ac3","available":true,"brand":"ACME","name":"AC3 Phone","price":200,"type":"phone","warranty_years":1}
+{"_id":"ac7","available":false,"brand":"ACME","name":"AC7 Phone","price":320,"type":"phone","warranty_years":1}
+{"_id":"ac9","available":true,"brand":"ACME","name":"AC9 Phone","price":333,"type":"phone","warranty_years":0.25}
+{"_id":{"$oid":"507d95d5719dbef170f15bf9"},"for":["ac3","ac7","ac9"],"name":"AC3 Series Charger","price":19,"type":["accessory","charger"],"warranty_years":0.25}
+{"_id":{"$oid":"507d95d5719dbef170f15bfa"},"color":"green","name":"AC3 Case Green","price":12,"type":["accessory","case"],"warranty_years":0}
+{"_id":{"$oid":"507d95d5719dbef170f15bfb"},"for":["ac3","ac7","ac9","qp7","qp8","qp9"],"name":"Phone Extended Warranty","price":38,"type":"warranty","warranty_years":2}
+{"_id":{"$oid":"507d95d5719dbef170f15bfc"},"available":false,"color":"black","for":"ac3","name":"AC3 Case Black","price":12.5,"type":["accessory","case"],"warranty_years":0.25}
+{"_id":{"$oid":"507d95d5719dbef170f15bfd"},"available":true,"color":"red","for":"ac3","name":"AC3 Case Red","price":12,"type":["accessory","case"],"warranty_years":0.25}
+{"_id":{"$oid":"507d95d5719dbef170f15bfe"},"limits":{"data":{"n":20,"over_rate":1,"units":"gigabytes"},"sms":{"n":100,"over_rate":0.001,"units":"texts sent"},"voice":{"n":400,"over_rate":0.05,"units":"minutes"}},"monthly_price":40,"name":"Phone Service Basic Plan","term_years":2,"type":"service"}
+{"_id":{"$oid":"507d95d5719dbef170f15bff"},"limits":{"data":{"n":"unlimited","over_rate":0},"sms":{"n":"unlimited","over_rate":0},"voice":{"n":1000,"over_rate":0.05,"units":"minutes"}},"monthly_price":60,"name":"Phone Service Core Plan","term_years":1,"type":"service"}
+{"_id":{"$oid":"507d95d5719dbef170f15c00"},"limits":{"data":{"n":"unlimited","over_rate":0},"sms":{"n":"unlimited","over_rate":0.01},"voice":{"n":1200,"over_rate":0.05,"units":"minutes"}},"monthly_price":90,"name":"Phone Service Family Plan","sales_tax":true,"term_years":3,"type":"service"}
+{"_id":{"$oid":"507d95d5719dbef170f15c01"},"additional_tarriffs":[{"amount":{"percent_of_service":0.06},"kind":"federal tarriff"},{"amount":2.25,"kind":"misc tarriff"}],"cancel_penalty":25,"monthly_price":50,"name":"Cable TV Basic Service Package","sales_tax":true,"term_years":2,"type":"tv"}
