@@ -1,0 +1,162 @@
+ Homework: Homework 4.1
+
+In this chapter’s homework we will create a replica set and add some data to it.
+
+1. Unpack replication.js from the Download Handout zip file.
+
+2. We will create a three member replica set. Pick a root working directory to work in. Go to that directory in a console window.
+
+Given we will have three members in the set, and three mongod processes, create three data directories:
+
+    mkdir 1
+    mkdir 2
+    mkdir 3
+
+3. We will now start a single mongod as a standalone server. Given we will have three mongod processes on our single test server, we will explicitly specify the port numbers (this wouldn’t be necessary if we had three real machines or three virtual machines). We’ll also use the --smallfiles parameter and --oplogSize so the files are small given we have a lot of server processes running on our test PC.
+
+    # starting as a standalone server for problem 1:
+    mongod --dbpath 1 --port 27001 --smallfiles --oplogSize 50
+
+Note: for all mongod startups in the homework this chapter, you can optionally use --logPath, --logappend, and --fork. Or, since this is just an exercise on a local PC, you could simply have a separate terminal window for all and forgo those settings. Run “mongod --help” for more info on those.
+
+4. In a separate terminal window (cmd.exe on Windows), run the mongo shell with the replication.js file:
+
+    mongo --port 27001 --shell replication.js
+
+Then run in the shell:
+
+    homework.init()
+
+This will load a small amount of test data into the database.
+
+Now run:
+
+    homework.a()
+
+and enter the result. This will simply confirm all the above happened ok.
+
+
+
+
+
+Homework: Homework 4.2
+
+Now convert the mongod instance (the one in the problem 4.1 above, which uses “--dbpath 1”) to a single server replica set. To do this, you’ll need to stop the mongod (NOT the mongo shell instance) and restart it with “--replSet” on its command line. Give the set any name you like.
+
+Then go to the mongo shell. Once there, run
+
+    rs.initiate()
+
+Note: if you do not specify a configuration, the mongod will pick one based on your computer's hostname.
+
+When you first ran homework.init(), we loaded some data into the mongod. You should see it in the replication database. You can confirm with:
+
+    use replication
+    db.foo.find()
+
+Once done with that, run
+
+    homework.b()
+
+in the mongo shell and enter that result below.
+
+
+
+
+
+Homework: Homework 4.3
+
+Now add two more members to the set. Use the 2/ and 3/ directories we created in homework 4.1. Run those two mongod’s on ports 27002 and 27003 respectively (the exact numbers could be different).
+
+Remember to use the same replica set name as you used for the first member.
+
+You will need to add these two new members to your replica set, which will initially have only one member. In the shell running on the first member, you can see your replica set status with
+
+    rs.status()
+
+Initially it will have just that first member. Connecting to the other members will involve using
+
+    rs.add()
+
+For example,
+
+    rs.add("localhost:27002")
+
+Note that 'localhost' almost certainly won't work for you unless you have already set it as 'localhost' in the previous problem. If not, try using the name in the "members.name" field in the document you get by calling rs.status(), but remember to use the correct port!.
+
+You'll know it's added when you see an
+
+{ "ok" : 1 }
+
+document.
+
+Once a secondary has spun up, you can connect to it with a new mongo shell instance. Use
+
+    rs.slaveOk()
+
+to let the shell know you're OK with (potentially) stale data, and run some queries. You can also insert data on your primary and then read it out on your secondary.
+
+Once you have two secondary servers, both of which have sync'd with the primary and are caught up, run (on your primary):
+
+    homework.c()
+
+and enter the result below.
+
+
+
+
+Homework: Homework 4.4
+
+We will now remove the first member (@ port 27001) from the set.
+
+As a first step to doing this we will shut it down. (Given the rest of the set can maintain a majority, we can still do a majority reconfiguration if it is down.)
+
+We could simply terminate its mongod process, but if we use the replSetStepDown command, the failover may be faster. That is a good practice, though not essential. Connect to member 1 (port 27001) in the shell and run:
+
+    rs.stepDown()
+
+Then cleanly terminate the mongod process for member 1.
+
+Next, go to the new primary of the set. You will probably need to connect with the mongo shell, which you'll want to run with '--shell replication.js' since we'll be getting the homework solution from there. Once you are connected, run rs.status() to check that things are as you expect. Then reconfigure to remove member 1.
+
+Tip: You can either use rs.reconfig() with your new configuration that does not contain the first member, or rs.remove(), specifying the host:port of the server you wish to remove as a string for the input.
+
+When done, run:
+
+> homework.d()
+
+and enter the result.
+Trouble-Shooting Tips
+
+    Make sure that your replica set has _id's 0, 1, and 2 set. If you didn't use a custom config, you should be fine, but this is an issue that has come up when using custom configurations.
+    If you ran the shell without replication.js on the command line, restart the shell with it.
+
+
+
+
+
+ Homework: Homework 4.5
+
+Note our replica set now has an even number of members, and that is not a best practice. However, to keep the homework from getting too long we’ll leave it at that for now, and instead do one more exercise below involving the oplog.
+
+To get the right answer on this problem, you must perform the homework questions in order. Otherwise, your oplog may look different than we expect.
+
+Go to the secondary in the replica set. The shell should say SECONDARY at the prompt if you've done everything correctly.
+
+Switch to the local database and then look at the oplog:
+
+    db.oplog.rs.find()
+
+If you get a blank result, you are not on the right database.
+
+Note: as the local database doesn’t replicate, it will let you query it without entering “rs.slaveOk()” first.
+
+Next look at the stats on the oplog to get a feel for its size:
+
+    db.oplog.rs.stats()
+
+What result does this expression give when evaluated?
+
+    db.oplog.rs.find( { } ).sort( { $natural : 1 } ).limit( 1 ).next( ).o.msg[0]
+
+Note that if you inserted many documents (more than around 500,000), your oplog will roll over and eliminate the document that you need. If this happens, you'll need to repeat the previous problems with a set of clean directories in order to find the answer to this question.
