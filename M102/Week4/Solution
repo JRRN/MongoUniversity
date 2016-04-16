@@ -36,7 +36,12 @@ Now run:
 and enter the result. This will simply confirm all the above happened ok.
 
 
+X	5001
+create folde 1,2,3 in /data/db
 
+mongod --dbpath /home/jrrn/Descargas/data/db/1 --port 27001 --smallfiles --oplogSize 50
+mongod --dbpath /home/jrrn/Descargas/data/db/2 --port 27002 --smallfiles --oplogSize 50
+mongod --dbpath /home/jrrn/Descargas/data/db/3 --port 27003 --smallfiles --oplogSize 50
 
 
 Homework: Homework 4.2
@@ -61,7 +66,11 @@ Once done with that, run
 in the mongo shell and enter that result below.
 
 
+X	5002
 
+mongod --dbpath /home/jrrn/Descargas/data/db/1 --port 27001 --smallfiles --oplogSize 50 -replSet "rs1"
+mongod --dbpath /home/jrrn/Descargas/data/db/2 --port 27002 --smallfiles --oplogSize 50 -replSet "rs1"
+mongod --dbpath /home/jrrn/Descargas/data/db/3 --port 27003 --smallfiles --oplogSize 50 -replSet "rs1"
 
 
 Homework: Homework 4.3
@@ -104,6 +113,9 @@ and enter the result below.
 
 
 
+X	5
+
+
 
 Homework: Homework 4.4
 
@@ -132,7 +144,7 @@ Trouble-Shooting Tips
     If you ran the shell without replication.js on the command line, restart the shell with it.
 
 
-
+X	6
 
 
  Homework: Homework 4.5
@@ -160,3 +172,6 @@ What result does this expression give when evaluated?
     db.oplog.rs.find( { } ).sort( { $natural : 1 } ).limit( 1 ).next( ).o.msg[0]
 
 Note that if you inserted many documents (more than around 500,000), your oplog will roll over and eliminate the document that you need. If this happens, you'll need to repeat the previous problems with a set of clean directories in order to find the answer to this question.
+
+
+X	R
