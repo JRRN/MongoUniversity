@@ -1,0 +1,45 @@
+Homework: Homework 5.1
+
+Set up a replica set that includes an arbiter.
+
+To demonstrate that you have done this, what is the text in the "state" field for the arbiter when you run rs.status()?
+
+
+
+Homework: Homework 5.2
+
+You have a replica set with two members, having decided that a total of two copies of your data is sufficient.
+
+You are concerned about robustness, however.
+
+Which of the following are options that will allow you to ensure that failover can occur if the first server goes down?
+
+Check all that apply.
+Add an arbiter.
+Increase the number of votes for the first replica set member from one to two.
+Increase the priority of the first server from one to two.
+Add another data bearing node. 
+
+
+
+Homework: Homework 5.3
+
+You would like to create a replica set that is robust to data center failure.
+
+You only have two data centers available. Which arrangement(s) of servers will allow you to be stay up (as in, still able to elect a primary) in the event of a failure of either data center (but not both at once)? Check all that apply.
+All 3 servers in data center 1.
+2 servers in data center 1, one server in data center 2.
+None of the above. 
+
+
+
+
+Homework: Homework 5.4
+
+Consider the following scenario: You have a two member replica set, a primary, and a secondary.
+
+The data center with the primary goes down, and is expected to remain down for the foreseeable future. Your secondary is now the only copy of your data, and it is not accepting writes. You want to reconfigure your replica set config to exclude the primary, and allow your secondary to be elected, but you run into trouble. Find out the optional parameter that you'll need, and input it into the box below for your rs.reconfig(new_cfg, OPTIONAL PARAMETER).
+
+Hint: You may want to use this documentation page to solve this problem.
+
+Your answer should be of the form { key : value } (including brackets). Do not include the rs.reconfigure portion of the query.
