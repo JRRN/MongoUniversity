@@ -21,6 +21,8 @@ Stop the mongod process. Now, restart the mongod process adding the option --sha
 
     mongod --shardsvr …
 
+sudo mongod --shardsvr --dbpath /var/lib/mongodb --logpath /var/log/mongodb/mongod00.log --port 27018 --fork --logappend --smallfiles --oplogSize 50
+
 Note that with --shardsvr specified the default port for mongod becomes 27018.
 
 Start a mongo config server:
@@ -39,6 +41,11 @@ Connect to mongos with the shell:
 
 Add the first shard ("your_host_name:27018").
 
+
+sh.addShard("localhost:27018")
+{ "shardAdded" : "shard0000", "ok" : 1 }
+
+
 Verify that the week6.trades data is visible via mongos. Note at this point the week6 database isn't "sharding enabled" but its data is still visible via mongos:
 
     db.trades.find().pretty()
@@ -47,6 +54,8 @@ Verify that the week6.trades data is visible via mongos. Note at this point the 
 
 Run homework.a() and enter the result below. This method will simply verify that this simple cluster is up and running and return a result key. 
 
+
+X	1000001
 
 
 Homework: Homework 6.2
@@ -66,6 +75,9 @@ After sharding the collection, look at the chunks which exist:
     db.chunks.find({}, {min:1,max:1,shard:1,_id:0,ns:1})
 
 Run homework.b() to verify the above and enter the return value below. 
+
+
+X	3
 
 
 Homework: Homework 6.3
@@ -93,3 +105,6 @@ and/or:
 When done, run homework.c() and enter the result value.
 
 That completes this week's homework. However if you want to explore more, something to try would be to try some queries and/or write operations with a single process down to see how the system behaves in such a situation. 
+
+
+X	2
