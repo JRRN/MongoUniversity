@@ -6,6 +6,9 @@ To demonstrate that you have done this, what is the text in the "state" field fo
 
 
 
+X	7
+
+
 Homework: Homework 5.2
 
 You have a replica set with two members, having decided that a total of two copies of your data is sufficient.
@@ -15,10 +18,10 @@ You are concerned about robustness, however.
 Which of the following are options that will allow you to ensure that failover can occur if the first server goes down?
 
 Check all that apply.
-Add an arbiter.
+X	Add an arbiter.
 Increase the number of votes for the first replica set member from one to two.
 Increase the priority of the first server from one to two.
-Add another data bearing node. 
+X	Add another data bearing node. 
 
 
 
@@ -29,9 +32,7 @@ You would like to create a replica set that is robust to data center failure.
 You only have two data centers available. Which arrangement(s) of servers will allow you to be stay up (as in, still able to elect a primary) in the event of a failure of either data center (but not both at once)? Check all that apply.
 All 3 servers in data center 1.
 2 servers in data center 1, one server in data center 2.
-None of the above. 
-
-
+X	None of the above. 
 
 
 Homework: Homework 5.4
@@ -43,3 +44,6 @@ The data center with the primary goes down, and is expected to remain down for t
 Hint: You may want to use this documentation page to solve this problem.
 
 Your answer should be of the form { key : value } (including brackets). Do not include the rs.reconfigure portion of the query.
+
+
+X	 { force : true }
