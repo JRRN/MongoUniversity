@@ -63,8 +63,6 @@ to see what data is there after the set recovered from the outage. How many docu
 
 
 
-
-
 Final: Question 2
 
 Let's do that again with a slightly different crash/recover scenario for each process. Start with the following:
@@ -121,7 +119,7 @@ MongoDB preserves the order of writes in a collection in its consistency model. 
 The MongoDB primary does not write to its data files until a majority acknowledgement comes back from the rest of the cluster. When 27003 was primary, it did not perform the last 3 writes. 
 
 
-
+	
 
 Final: Question 3
 
@@ -251,7 +249,6 @@ Notes:
 
 
 
-
 Final: Question 9
 
 Now that the config server from question #8 is up and running, we will restore the two shards ("s1" and "s2").
@@ -296,7 +293,6 @@ Notes:
 
 
 
-
 Final: Question 10
 
 Now, for our temporary data mart, once again from a mongo shell connected to the cluster:
@@ -314,3 +310,4 @@ Thousands of documents are examined.
 2 shards are queried.
 1 shard is queried.
 8 documents are examined. 
+
