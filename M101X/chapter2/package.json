@@ -4,7 +4,7 @@
     "watch": "gulp watch"
   },
   "dependencies": {
-    "mongoose": "4.0.3"
+    "mongoose": "5.9.27"
   },
   "devDependencies": {
     "gulp": "3.8.11",
