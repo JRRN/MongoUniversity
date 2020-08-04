@@ -1,3 +1,0 @@
-show collections
-use <dbname>
-db.<dbname>.find().pretty() 
