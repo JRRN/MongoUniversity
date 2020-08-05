@@ -72,7 +72,7 @@ Which of the following field names appear in documents in the movies collection 
 - [X] plot
 - stars
 
-Lab 1.2: Determine the Value Type, Part 1
+**Lab 1.2: Determine the Value Type, Part 1**
 
 Problem:
 What is the value type of the ts field for documents in the 100YWeatherSmall.data collection?
@@ -87,7 +87,7 @@ What is the value type of the ts field for documents in the 100YWeatherSmall.dat
 - mixed string and double
 - string
 
-Lab 1.3: Determine the Value Type, Part 2
+**Lab 1.3: Determine the Value Type, Part 2**
 
 Problem:
 What is the value type of the airTemperature field for documents in the 100YWeatherSmall.data collection?
@@ -102,7 +102,7 @@ What is the value type of the airTemperature field for documents in the 100YWeat
 - mixed string and double
 - string
 
-Lab 1.4: Determine the Value Type, Part 3
+**Lab 1.4: Determine the Value Type, Part 3**
 
 Problem:
 What is the value type of the year field for documents in the video.movies collection?
@@ -117,7 +117,7 @@ What is the value type of the year field for documents in the video.movies colle
 - mixed string and double
 - string
 
-Lab 1.5: Scavenger Hunt, Part 1
+**Lab 1.5: Scavenger Hunt, Part 1**
 
 Problem:
 How many movies in the video collection were directed by Patty Jenkins. Stated more precisely, how many documents in the video.movies collection have a value of "Patty Jenkins" for the director field?
@@ -128,7 +128,7 @@ How many movies in the video collection were directed by Patty Jenkins. Stated m
 - 98
 - 143
 
-Lab 1.6: Scavenger Hunt, Part 2
+**Lab 1.6: Scavenger Hunt, Part 2**
 
 Problem:
 How many documents in the citibike.trips collection have a tripduration that is greater than or equal to 60 and less than 65?
