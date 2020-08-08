@@ -43,6 +43,7 @@ Delete
 
 - db.\<dbname>.deleteOne({ prop : value })
 - db.\<dbname>.deleteMany({ prop : value })
+
 **Quizzes**
 
 Problem:
