@@ -75,3 +75,26 @@ How are schema design patterns used in modeling for MongoDB?
 - [X] They are applied when needed for a given use case.
 - They are all applied to all use cases.
 - They normalize the data model.
+
+Problem:
+Which of the following can be validated through schema validation in MongoDB?
+
+- [X] Values have the right type for a given field.
+- [X] A  document has either one of two strict shapes.
+- Documents in different collections have referential integrity.
+- [X] Values are within a set of acceptable values for a given field.
+
+Problem:
+Which one of the following actions permits to scale horizontally?
+
+- Move the cluster to Atlas in the Cloud.
+- [X] Add a shard to the cluster.
+- Add more disk space.
+- Add a member in the replica set.
+- Add more memory to the servers.
+
+Which of the following are ways MongoDB helps keep the integrity of the data?
+
+- Cascading deletes are supported in the MongoDB database server.
+- [X] Change streams can be used to create triggers to implement user-defined integrity checks.
+- [X] The document model guarantees referential integrity between parent and child entities.
